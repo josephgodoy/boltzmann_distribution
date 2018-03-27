@@ -1,6 +1,7 @@
 ## Joseph Godoy -- Boltzmann.py ##
 
 import numpy as np
+import matplotlib.pyplot as plt
 from scipy.integrate import quad
 
 m  = .0280134 / (6.022 * 10**23) #Nitrogen Mass (Kg)
@@ -15,3 +16,11 @@ def boltzmann(v):
 probability, err = quad(boltzmann, v1, v2)
 
 print(probability)
+
+v_array = np.linspace(0, 1000, 100) # v_array is a 100 element array from 0.0 to 1000.0.
+
+#print(len(v_array))
+#print(v_array[0], v_array[-1])
+
+plt.plot(v_array,boltzmann(v_array))
+plt.show()
